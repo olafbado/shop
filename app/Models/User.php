@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'active',
     ];
 
     /**
@@ -44,5 +46,30 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    protected $attributes = [
+        'role' => 'client',
+        'active' => true,
+    ];
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isClient(): bool
+    {
+        return $this->role === 'client';
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(\App\Models\Address::class);
+    }
+    
+    public function orders()
+    {
+        return $this->hasMany(\App\Models\Order::class);
     }
 }
