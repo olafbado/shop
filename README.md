@@ -11,13 +11,13 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   [Simple, fast routing engine](https://laravel.com/docs/routing).
+-   [Powerful dependency injection container](https://laravel.com/docs/container).
+-   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+-   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+-   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+-   [Robust background job processing](https://laravel.com/docs/queues).
+-   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
@@ -35,14 +35,14 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 ### Premium Partners
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+-   **[Vehikl](https://vehikl.com)**
+-   **[Tighten Co.](https://tighten.co)**
+-   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+-   **[64 Robots](https://64robots.com)**
+-   **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+-   **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+-   **[Redberry](https://redberry.international/laravel-development)**
+-   **[Active Logic](https://activelogic.com)**
 
 ## Contributing
 
@@ -59,3 +59,43 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Admin Dashboard Functionality
+
+The admin dashboard allows users with the `admin` role to manage all aspects of the shop. To access, log in as an admin and go to `/admin/dashboard`.
+
+### Modules
+
+-   **Users:** List, search, edit roles, activate/deactivate users.
+-   **Products:** Full CRUD, filter by name/category/availability, toggle active status.
+-   **Categories:** Create/list categories, assign/unassign products.
+-   **Orders:** View all orders with user and product details (read-only).
+-   **Reviews:** List, hide, or delete product reviews.
+
+### Interface
+
+-   Built with Bootstrap for a clean UI.
+-   Sidebar navigation for modules.
+-   Tables with pagination and search.
+-   Modals/pages for editing.
+-   Bootstrap toasts/alerts for feedback.
+
+### Access
+
+-   Log in as admin at `/login`.
+-   Example seeded admin: `admin@admin` / `admin`
+
+### Tests
+
+-   Feature tests for admin access, product management, user deactivation, and product filtering are in `tests/Feature/Admin/`.
+-   Run tests with:
+
+```bash
+php artisan test --testsuite=Feature
+```
+
+### Directory Structure
+
+-   Views: `resources/views/admin/`
+-   Controllers: `app/Http/Controllers/Admin/`
+-   Routes: grouped under `admin` middleware in `routes/web.php`
